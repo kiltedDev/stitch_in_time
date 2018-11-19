@@ -1,2 +1,10 @@
-<h1>StaticPages#help</h1>
-<p>Find me in app/views/static_pages/help.html.erb</p>
+<% provide(:title, "Help") %>
+
+<h1>Help</h1>
+<p>
+  Welcome Traveler!
+</p>
+<br>
+<p>
+  You can <%= link_to "contact", contact_path %> the developer for login instructions and some help on how to explore, or you could create an account and travel around in your own time.
+</p>
