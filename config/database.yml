@@ -15,7 +15,7 @@
 # gem 'pg'
 #
 default: &default
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  adapter: PostgreSQL
   database: stitch_in_time_production
   username: stitch_in_time
   password: <%= ENV['STITCH_IN_TIME_DATABASE_PASSWORD'] %>
