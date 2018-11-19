@@ -1,24 +1,31 @@
-# README
+# Stitch in Time time keeping application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is built for [Atelier Oliphant](http://www.instagram.com/atelieroliphant) to help track time spent and progress on contracted projects.
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+To get started with the app, clone the repo and then install the needed gems:
 
-* System dependencies
+```
+$ bundle install --without production
+```
 
-* Configuration
+Next, migrate the database:
 
-* Database creation
+```
+$ rails db:migrate
+```
 
-* Database initialization
+Finally, run the test suite to verify that everything is working correctly:
 
-* How to run the test suite
+```
+$ rspec
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+If the test suite passes, you'll be ready to run the app in a local server:
 
-* Deployment instructions
+```
+$ rails server
+```
 
-* ...
+For more information, contact the [developer](mailto:kilted.dev@gmail.com).
