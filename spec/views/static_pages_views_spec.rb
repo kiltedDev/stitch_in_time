@@ -14,14 +14,14 @@ RSpec.describe "static_pages", type: :view do
 
   feature "home page" do
     scenario "shows home page and link to sources" do
-      visit home_path
+      visit root_path
 
       expect(page).to have_content "Stitch in Time"
       expect(page).to have_link "Atelier Oliphant"
     end
 
     scenario "has a title" do
-      visit home_path
+      visit root_path
       expect(page).to have_title "#{@base_title}"
     end
 
