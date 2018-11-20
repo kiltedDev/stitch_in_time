@@ -503,6 +503,7 @@ DEPENDENCIES
   mini_magick (= 4.7.0)
   minitest (= 5.10.3)
   minitest-reporters (= 1.1.14)
+  omniauth
   omniauth-google-oauth2 (~> 0.2.2)
   pg (= 0.18.4)
   puma (= 3.9.1)
