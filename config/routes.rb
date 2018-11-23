@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     post   '/login',   to: 'devise/sessions#create'
     delete '/logout',  to: 'devise/sessions#destroy'
   end
-  resources :users, only: [:show, :index, :update]
+  resources :users, only: [:show, :index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

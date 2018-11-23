@@ -23,23 +23,24 @@ feature 'user edit account', %(
 
   scenario 'user edits profile correctly' do
     fill_in "Email", with: "Bill@bob.net"
+    fill_in "Current password", with: "password"
 
     click_button 'Update'
 
-    expect(@bob.reload.email).to eq "Bill@bob.net"
-    expect(page).to have_content "Profile updated"
+    expect(@bob.reload.email).to eq "bill@bob.net"
+    expect(page).to have_content "Your account has been updated successfully."
   end
 
   scenario 'redirects edit when not logged in' do
     click_link "Log out"
-    visit edit_user_path @bob
+    visit edit_user_registration_path @bob
 
-    expect(page).to have_current_path(login_path)
+    expect(page).to have_content("You need to sign in or sign up before continuing.")
   end
 
   scenario 'friendly forwarding after logging in correctly' do
     click_link "Log out"
-    visit edit_user_path @bob
+    visit edit_user_registration_path @bob
 
     fill_in 'Email', with: @bob.email
     fill_in 'Password', with: @bob.password
@@ -57,8 +58,8 @@ feature 'user edit account', %(
 
   scenario 'redirects edit when logged in as someone else' do
     @major = create(:user, :major)
-    visit edit_user_path @major
+    visit edit_user_registration_path @major
 
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_content("You need to sign in or sign up before continuing.")
   end
 end
