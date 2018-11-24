@@ -7,6 +7,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false}
   validates :password, presence: true, length: { minimum: 8, maximum: 64 }, allow_nil: true
+  validates :username, length: { minimum: 4, maximum: 50 }, uniqueness: {case_sensitive: false}, allow_blank: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
@@ -30,6 +31,13 @@ class User < ApplicationRecord
      end
   end
 
+  def nickname
+    if self.username?
+      self.username
+    else
+      self.email
+    end
+  end
 
   def logged_in?
     !current_user.nil?

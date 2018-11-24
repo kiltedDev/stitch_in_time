@@ -18,6 +18,11 @@ RSpec.describe User, type: :model do
     bob = User.new(email: "the.bob@bob.net")
   end
 
+  it "is not valid with too long a name" do
+    @bob.username = "a" * 51
+    expect(@bob).to_not be_valid
+  end
+
   it "is not valid with too long an email" do
     @bob.email = "a" * 244 + "@example.com"
     expect(@bob).to_not be_valid
@@ -68,5 +73,12 @@ RSpec.describe User, type: :model do
   it "is not valid with a too long password" do
     @bob.password = @bob.password_confirmation = "x" * 65
     expect(@bob).to_not be_valid
+  end
+
+  it "returns the correct nickname" do
+    expect(@bob.nickname).to eq(@bob.username)
+
+    nobody = create(:user, :nobody)
+    expect(nobody.nickname).to eq(nobody.email)
   end
 end

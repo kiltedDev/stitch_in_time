@@ -1,0 +1,10 @@
+<%= form_for(current_user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
