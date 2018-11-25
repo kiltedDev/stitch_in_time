@@ -20,6 +20,14 @@ RSpec.describe Project, type: :model do
     expect(@project).to_not be_valid
   end
 
+  it "is not a valid model with a repeated name" do
+    project2 = create(:project, user: @bob)
+    expect(project2).to be_valid
+
+    project2.name = @project.name
+    expect(project2).to_not be_valid
+  end
+
   it "is not a valid model without a description" do
     @project.description = nil
     expect(@project).to_not be_valid
