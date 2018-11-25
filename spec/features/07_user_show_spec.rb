@@ -22,11 +22,20 @@ feature 'user show page', %(
   end
 
   scenario "shows paginated index of user's projects, most recent first" do
-
+    30.times do |n|
+      name = Faker::Lorem.sentence(8)
+      description = Faker::Lorem.sentence(10)
+      create(:project, user: @bob, name: name, description: description)
+    end
+    first_project = @bob.projects.first
+    last_project = @bob.projects.last
+    visit user_path @bob
+    expect(page).to have_link(first_project.name)
+    expect(page).to_not have_link(last_project.name)
   end
 
   scenario "has pagination links" do
-
+    expect(page).to have_link("2", count: 2)
   end
 
 end

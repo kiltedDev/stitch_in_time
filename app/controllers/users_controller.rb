@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @projects = @user.projects.paginate(page: params[:page])
+
   end
 
   def edit
