@@ -17,7 +17,7 @@ User.create!(
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
   User.create!(
-    name:  username,
+    username:  username,
     email: email,
     password:              password,
     password_confirmation: password,
