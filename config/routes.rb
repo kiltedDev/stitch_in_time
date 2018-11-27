@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     delete '/logout',  to: 'devise/sessions#destroy'
   end
   resources :users, only: [:show, :index, :edit, :update]
-  resources :projects, only: [:show, :index, :edit, :update, :create]
+  resources :projects
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

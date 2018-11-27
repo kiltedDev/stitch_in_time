@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @user     = current_user
     @project  = current_user.projects.build
     @projects = @user.projects.paginate(page: params[:page])
-
   end
 
   def edit

@@ -1,0 +1,14 @@
+<% provide(:title, "Projects") %>
+<h1><%= current_user.nickname %>'s Projects</h1>
+
+<%= will_paginate previous_label: '<', next_label: '>' %>
+
+<div class="list-group">
+<% @projects.each do |project| %>
+    <%= link_to project_path(project), class: "list-group-item" do %>
+      <h2 class="h3"><small> <%= project.name %></small></h2>
+   <% end %>
+<% end %>
+</div>
+
+<%= will_paginate previous_label: '<', next_label: '>' %>
