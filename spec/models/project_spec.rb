@@ -41,7 +41,7 @@ RSpec.describe Project, type: :model do
     expect(Project.first).to eq(most_recent)
   end
 
-  it "is destoyed when it's user is" do
+  it "is destoyed when its user is" do
     expect(Project.count).to eq(1)
     @bob.destroy
     expect(Project.count).to eq(0)

@@ -1,0 +1,2 @@
+class PunchesController < ApplicationController
+end

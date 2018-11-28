@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'user edit account', %(
-  As a user, I want to be able to edit my account.
+feature 'create project', %(
+  As a user, I want to be able to create a project I can track.
 ) do
 
   before(:each) do

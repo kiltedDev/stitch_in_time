@@ -20,6 +20,7 @@ gem 'devise',                  '~> 4.3.0'
 gem 'omniauth'
 gem 'omniauth-google-oauth2',  '~> 0.2.2'
 gem 'dotenv-rails'
+gem "hublot",                  "~> 0.0.6"
 
 group :development, :test do
   gem 'rspec-rails'

@@ -14,10 +14,6 @@ RSpec.describe User, type: :model do
     expect(@bob).to_not be_valid
   end
 
-  it "is not valid without a valid password" do
-    bob = User.new(email: "the.bob@bob.net")
-  end
-
   it "is not valid with too long a name" do
     @bob.username = "a" * 51
     expect(@bob).to_not be_valid
@@ -53,7 +49,7 @@ RSpec.describe User, type: :model do
     expect(duped_user).to_not be_valid
   end
 
-  it "saves email addresses as lower cast" do
+  it "saves email addresses as lower case" do
     gamzee_email = "UsEr@ExAmPlE.cOm"
     @bob.email = gamzee_email
     @bob.save
@@ -74,6 +70,8 @@ RSpec.describe User, type: :model do
     @bob.password = @bob.password_confirmation = "x" * 65
     expect(@bob).to_not be_valid
   end
+
+  pending "add the specs for timezone to #{__FILE__}"
 
   it "returns the correct nickname" do
     expect(@bob.nickname).to eq(@bob.username)

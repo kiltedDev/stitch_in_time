@@ -280,6 +280,8 @@ GEM
     hashie (3.5.7)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    hublot (0.0.6)
+      rails (> 3.0.0)
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
@@ -497,6 +499,7 @@ DEPENDENCIES
   font-awesome-rails
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
+  hublot (~> 0.0.6)
   jbuilder (= 2.7.0)
   jquery-rails (= 4.3.1)
   listen (= 3.1.5)

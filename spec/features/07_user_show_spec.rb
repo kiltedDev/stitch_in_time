@@ -31,7 +31,7 @@ feature 'user show page', %(
     last_project = create(:project, user: @bob, name: "I am the last project")
 
     visit user_path @bob
-    expect(page).to have_content("#{last_project.name} #{next_project.name}")
+    expect(page).to have_content("#{last_project.name}\n#{next_project.name}")
   end
 
   pending "adjust #{__FILE__} to list projects by most recently worked on"

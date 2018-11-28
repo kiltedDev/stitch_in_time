@@ -27,7 +27,7 @@ end
 # create projects
 users = User.order(:created_at).take(6)
 50.times do
-  name = Faker::Lorem.sentence(5)
+  name = Faker::Lorem.sentence(3)
   description = Faker::Lorem.sentence(8)
   users.each { |user| user.projects.create!(name: name, description: description) }
 end

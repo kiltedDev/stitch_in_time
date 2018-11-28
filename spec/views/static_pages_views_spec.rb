@@ -17,7 +17,6 @@ RSpec.describe "static_pages", type: :view do
       visit root_path
 
       expect(page).to have_content "Stitch in Time"
-      expect(page).to have_link "Atelier Oliphant"
     end
 
     scenario "has a title" do
@@ -46,6 +45,7 @@ RSpec.describe "static_pages", type: :view do
       visit about_path
 
       expect(page).to have_content "About"
+      expect(page).to have_link "Atelier Oliphant"
     end
 
     scenario "has a title " do
