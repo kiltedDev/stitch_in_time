@@ -1,14 +1,14 @@
 <div class="center jumbotron">
-  <h1>Stitch in Time</h1>
-  <p>
-    This is the home page for the Stitch in Time app.  A time keeping application for independent contractors to keep better track of how much time they've dedicated to projects.
-  </p>
-  <p>This app was built for <a href="http://www.instagram.com/atelieroliphant"><em>Atelier Oliphant</em></a>
-  </p>
-  <% if !current_user %>
+  <% if current_user %>
+    <h3>Welcome back</h3>
+    <h3><%= "#{current_user.nickname}"%></h3>
+  <% else %>
+    <h1>Welcome friend</h1>
     <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
   <% end %>
-
+  <p>
+    This is the home page for the Stitch in Time app.
+  </p>
 </div>
 
 <i class="fa fa-hourglass-start"></i>

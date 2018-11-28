@@ -15,10 +15,14 @@
   <div class="col-md-8">
   <% if @user.projects.any? %>
     <h3>Projects (<%= @user.projects.count %>)</h3>
-    <ol class="projects">
-      <%= render @projects %>
-    </ol>
-    <%= will_paginate @projects %>
+    <div class="list-group">
+    <% @projects.each do |project| %>
+        <%= link_to project_path(project), class: "list-group-item" do %>
+          <h2 class="h3"><small> <%= project.name %></small></h2>
+       <% end %>
+    <% end %>
+    </div>
+    <%= will_paginate @projects, previous_label: '<', next_label: '>' %>
   <% end %>
 </div>
 </div>
