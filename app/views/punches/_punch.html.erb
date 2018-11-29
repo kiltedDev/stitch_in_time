@@ -1,0 +1,11 @@
+<% @punches.each do |punch| %>
+  <% if punch.active? %>
+    <%= link_to edit_punch_path(punch), class: "list-group-item list-group-item-danger" do %>
+      <h2 class="h3"><small> <%= punch.marker %></small></h2>
+    <% end %>
+  <% else %>
+    <%= link_to edit_punch_path(punch), class: "list-group-item" do %>
+      <h2 class="h3"><small> <%= punch.marker %></small></h2>
+    <% end %>
+  <% end %>
+<% end %>

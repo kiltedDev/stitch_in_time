@@ -15,5 +15,8 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :index, :edit, :update]
   resources :projects
+  resources :punches
+  post 'punch_out', to: 'punches#punch_out', as: :punch_out
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
