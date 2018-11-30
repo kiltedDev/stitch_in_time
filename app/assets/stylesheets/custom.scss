@@ -321,3 +321,9 @@ span.picture {
   margin-top: 45px;
   @include box_sizing;
 }
+
+.date-line {
+  width: 30%;
+  margin-right: 10px;
+  float: left;
+}

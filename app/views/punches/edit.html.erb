@@ -1,11 +1,15 @@
 <% provide(:title, "Task") %>
 <div class="row">
-  <aside class="col-sm-4">
-    <section class="project_info">
-      <%= render 'shared/project_info' %>
+  <section class="project_info">
+    <%= render 'shared/project_info' %>
+  </section>
+  <% if @punch.active? %>
+    <section class="punch_out_form">
+      <%= render 'shared/punch_out_form' %>
     </section>
-  </aside>
-  <div class="col-sm-8">
-    <%= render 'punch_card' %>
-  </div>
+  <% else %>
+    <div class="col-sm-8">
+      <%= render 'punch_card' %>
+    </div>
+  <% end %>
 </div>

@@ -1,7 +1,6 @@
 class PunchesController < ApplicationController
   before_action :set_project,   only: [:create]
   before_action :set_punch,   only: [:edit, :update, :punch_out, :show]
-  before_action :status_check, only: [:show, :edit]
 
   def create
     @punch = Punch.new(project: @project, time_in: Time.zone.now)
@@ -26,17 +25,11 @@ class PunchesController < ApplicationController
     if @punch.save
       redirect_to project_path @punch.project
     else
-      render punch_out_path @punch
+      render edit_punch_path @punch
     end
   end
 
-  private
-
-  def status_check
-    if @punch.active?
-      redirect_to punch_out_path @punch
-    end
-  end
+private
 
   def set_project
     @project = Project.find(params[:project_id])
