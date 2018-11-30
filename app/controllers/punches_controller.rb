@@ -1,6 +1,7 @@
 class PunchesController < ApplicationController
-  before_action :set_project,   only: [:create]
   before_action :set_punch,   only: [:edit, :update, :punch_out, :show]
+  before_action :set_project,   only: [:create, :update]
+  before_action :punch_params,   only: [:update]
 
   def create
     @punch = Punch.new(project: @project, time_in: Time.zone.now)
@@ -13,15 +14,25 @@ class PunchesController < ApplicationController
 
   def edit
     @project = @punch.project
-    if @punch.comment?
-      @comment = @punch.comment
+    @comment = @punch.comment || "Comment here on your work"
+    if @punch.time_worked?
+      @pretty_time = @punch.pretty_time
+    end
+  end
+
+  def update
+    if @punch.update_attributes(punch_params)
+      @punch.adjust_time
+      flash[:success] = "Task updated"
+      redirect_to @project
     else
-      @comment = "Comment here on your work"
+      render 'edit'
     end
   end
 
   def punch_out
     @punch.time_out = Time.zone.now
+    @punch.time_worked = @punch.time_out - @punch.time_in
     if @punch.save
       redirect_to project_path @punch.project
     else
@@ -31,11 +42,19 @@ class PunchesController < ApplicationController
 
 private
 
-  def set_project
-    @project = Project.find(params[:project_id])
-  end
-
   def set_punch
     @punch = Punch.find(params[:id])
+  end
+
+  def set_project
+    if params[:project_id]
+      @project = Project.find(params[:project_id])
+    else
+      @project = @punch.project
+    end
+  end
+
+  def punch_params
+    params.require(:punch).permit(:comment, :time_in, :time_out)
   end
 end

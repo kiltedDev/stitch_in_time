@@ -1,15 +1,13 @@
-<%= form_for(@punch) do |f| %>
+<%= bootstrap_form_for(@punch) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :comment %>
   <%= f.text_field :comment, class: 'form-control', placeholder: @comment %>
 
-  <span>
-  <%= f.label :time_in, "Start time", class: "date-line" %>
-  <%= f.datetime_select :time_in, { ampm: true, order: [:day, :month, :year] }, { class: "form-control date-line" } %>
-</span>
-  <%= f.label :time_out, "End time" %>
-  <%= f.datetime_select :time_out, { ampm: true, order: [:day, :month, :year] }, { class: "form-control date-line" } %>
+  <h4>Time worked: <small><%= @pretty_time %></small></h4>
 
-  <%= f.submit %>
+  <%= f.datetime_select :time_in, { ampm: true, order: [:day, :month, :year], class: "form-control" } %>
+
+  <%= f.datetime_select :time_out, { ampm: true, order: [:day, :month, :year], class: "form-control" } %>
+
+  <%= f.submit "Save task" %>
 <% end %>
