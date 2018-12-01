@@ -17,7 +17,7 @@
     <h3>Projects (<%= @user.projects.count %>)</h3>
     <div class="list-group">
     <% @projects.each do |project| %>
-        <%= link_to project_path(project), class: "list-group-item" do %>
+        <%= link_to project_path(project), class: "list-group-item clickable-text" do %>
           <h2 class="h3"><small> <%= project.name %></small></h2>
        <% end %>
     <% end %>

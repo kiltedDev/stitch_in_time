@@ -11,7 +11,7 @@ feature 'change password', %(
     visit edit_user_registration_path
   end
 
-  scenario 'user fails to enter in correct information' do
+  it 'user fails to enter in correct information' do
     fill_in "Password", with: ""
 
     click_button 'Update'
@@ -20,7 +20,7 @@ feature 'change password', %(
     expect(@bob.reload.email).to eq("thebob@bob.net")
   end
 
-  scenario 'user changes profile correctly' do
+  it 'user changes profile correctly' do
     fill_in "Password", with: "iamthebob"
     fill_in "Password confirmation", with: "iamthebob"
     fill_in "Current password", with: "password"
@@ -30,7 +30,7 @@ feature 'change password', %(
     expect(page).to have_content "Your account has been updated successfully."
   end
 
-  scenario 'redirects edit when not logged in' do
+  it 'redirects edit when not logged in' do
     click_link "Log out"
     visit edit_user_registration_path @bob
 

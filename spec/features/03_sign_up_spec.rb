@@ -6,7 +6,7 @@ feature 'sign up', %(
   So that I can track projects
 ) do
 
-  scenario 'specifying valid and required information' do
+  it 'specifying valid and required information' do
     visit new_user_registration_path
 
     fill_in 'Email', with: 'user@example.com'
@@ -22,7 +22,7 @@ feature 'sign up', %(
     expect(page).to have_content("Log out")
   end
 
-  scenario 'required information is not supplied' do
+  it 'required information is not supplied' do
     visit new_user_registration_path
     click_button 'Sign up'
 
@@ -31,7 +31,7 @@ feature 'sign up', %(
     expect(page).to_not have_content("Log out")
   end
 
-  scenario 'email is not unique' do
+  it 'email is not unique' do
     bob = FactoryBot.create(:user)
     visit new_user_registration_path
 
@@ -45,7 +45,7 @@ feature 'sign up', %(
     expect(page).to_not have_content("Log out")
   end
 
-  scenario 'password confirmation does not match confirmation' do
+  it 'password confirmation does not match confirmation' do
     visit new_user_registration_path
 
     fill_in 'Email', with: 'user@example.com'

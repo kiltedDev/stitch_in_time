@@ -16,7 +16,7 @@ feature 'show projects page', %(
     visit projects_path @bob
   end
 
-  scenario 'see a list of my projects' do
+  it 'see a list of my projects' do
 
     expect(page).to have_content @bob.nickname
     expect(page).to have_content @bob.projects.first.name

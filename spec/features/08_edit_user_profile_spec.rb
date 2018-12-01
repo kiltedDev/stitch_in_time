@@ -12,7 +12,7 @@ feature 'user edit account', %(
     click_link "Settings"
   end
 
-  scenario 'user fails to enter in correct information' do
+  it 'user fails to enter in correct information' do
     long_string = "a" * 65
     fill_in "Username", with: long_string
 
@@ -22,7 +22,7 @@ feature 'user edit account', %(
     expect(page).to_not have_content "Password can't be blank"
   end
 
-  scenario 'user fails to enter in correct information' do
+  it 'user fails to enter in correct information' do
     fill_in "Username", with: "a"
 
     click_button 'Save changes'
@@ -31,7 +31,7 @@ feature 'user edit account', %(
     expect(page).to_not have_content "Password can't be blank"
   end
 
-  scenario 'user edits profile correctly' do
+  it 'user edits profile correctly' do
     fill_in "Username", with: "Robert Johansson"
 
     click_button 'Save changes'
@@ -42,7 +42,7 @@ feature 'user edit account', %(
     expect(page).to_not have_content "Password can't be blank"
   end
 
-  scenario 'redirects edit when not logged in' do
+  it 'redirects edit when not logged in' do
     click_link "Log out"
     visit edit_user_path @bob
 

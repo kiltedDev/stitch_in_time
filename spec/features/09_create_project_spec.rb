@@ -11,14 +11,14 @@ feature 'create project', %(
     visit user_path @bob
   end
 
-  scenario 'user fails to enter in correct information' do
+  it 'user fails to enter in correct information' do
     click_button 'Create'
 
     expect(page).to have_content "Please enter a name"
     expect(page).to_not have_content "Password can't be blank"
   end
 
-  scenario 'user enters correct information' do
+  it 'user enters correct information' do
     fill_in :project_name, with: "I am a project"
     fill_in :project_description, with: "I am a very detailed description"
 

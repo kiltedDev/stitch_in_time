@@ -7,7 +7,7 @@ feature 'navigation', %(
     visit root_path
   end
 
-  scenario 'Footer should have correct links' do
+  it 'Footer should have correct links' do
     # expect(page).to have_link("Thomas Wilson", href: "http://www.railstutorial.org/")
     expect(page).to have_link("About", href: about_path)
     expect(page).to have_link("Contact", href: contact_path)

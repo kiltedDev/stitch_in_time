@@ -5,7 +5,7 @@ feature 'user signs out', %Q{
   I want to be able to sign out
 } do
 
-  scenario 'a user chooses to sign out' do
+  it 'a user chooses to sign out' do
     bob = FactoryBot.create(:user)
     login_as(bob, :scope => :user)
 

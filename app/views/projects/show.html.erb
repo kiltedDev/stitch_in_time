@@ -3,9 +3,11 @@
     <section class="project_info">
       <%= render 'shared/project_info' %>
     </section>
-    <section class="punch_in_form">
-      <%= render 'shared/punch_in_form' %>
-    </section>
+    <% if @ready %>
+      <section class="punch_in_form">
+        <%= render 'shared/punch_in_form' %>
+      </section>
+    <% end %>
     <div class="container text-center">
       <% if @punches.any? %>
         <%= will_paginate @punches, previous_label: '<', next_label: '>' %>

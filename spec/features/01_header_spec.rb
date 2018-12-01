@@ -7,7 +7,7 @@ feature 'navigation', %(
     visit root_path
   end
 
-  scenario 'header should have correct links' do
+  it 'header should have correct links' do
 
     expect(page).to have_link("stitch in time", href: root_path)
     expect(page).to have_link("Home", href: root_path)

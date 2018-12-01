@@ -11,7 +11,7 @@ feature 'sign in', %(
     visit login_path
   end
 
-  scenario 'user successfully signs in' do
+  it 'user successfully signs in' do
     fill_in 'Email', with: @bob.email
     fill_in 'Password', with: "password"
 
@@ -22,7 +22,7 @@ feature 'sign in', %(
     expect(page).to_not have_content('Log in')
   end
 
-  scenario 'a non-existent attempts to sign in' do
+  it 'a non-existent attempts to sign in' do
     visit new_user_session_path
 
     fill_in 'Email', with: 'bill@bob.net'
@@ -35,7 +35,7 @@ feature 'sign in', %(
     expect(page).to_not have_content('Log out')
   end
 
-  scenario 'an existing user with the wrong password tries to sign in' do
+  it 'an existing user with the wrong password tries to sign in' do
     fill_in 'Email', with: @bob.email
     fill_in 'Password', with: "notmypassword"
 
@@ -46,7 +46,7 @@ feature 'sign in', %(
     expect(page).to_not have_content('Log out')
   end
 
-  scenario 'A user cannot sign in when already signed in' do
+  it 'A user cannot sign in when already signed in' do
     medeiros = FactoryBot.create(:user, :major)
 
     login_as(medeiros, scope: :user)

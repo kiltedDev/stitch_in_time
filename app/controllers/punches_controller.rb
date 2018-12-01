@@ -14,7 +14,8 @@ class PunchesController < ApplicationController
 
   def edit
     @project = @punch.project
-    @comment = @punch.comment || "Comment here on your work"
+    @comment = @punch.comment.blank? ? "Comment here on your work" : @punch.comment
+
     if @punch.time_worked?
       @pretty_time = @punch.pretty_time
     end

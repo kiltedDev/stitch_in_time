@@ -10,18 +10,18 @@ feature 'user show page', %(
     visit user_path @bob
   end
 
-  scenario 'lists user name' do
+  it 'lists user name' do
     expect(page).to have_content(@bob.username)
   end
 
-  scenario 'lists user email when no username' do
+  it 'lists user email when no username' do
     nobody = create(:user, :nobody)
     login_as nobody
     visit user_path nobody
     expect(page).to have_content(nobody.email)
   end
 
-  scenario "shows index of user's projects, most recent first" do
+  it "shows index of user's projects, most recent first" do
     10.times do
       name = Faker::Lorem.sentence(8)
       description = Faker::Lorem.sentence(10)

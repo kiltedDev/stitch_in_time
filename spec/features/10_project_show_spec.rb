@@ -12,12 +12,12 @@ feature 'show project page', %(
     visit project_path @skunk_works
   end
 
-  scenario 'shows project details' do
+  it 'shows project details' do
     expect(page).to have_content @skunk_works.name
     expect(page).to have_content @skunk_works.description
   end
 
-  scenario 'lists punches in order from newest to oldest' do
+  it 'lists punches in order from newest to oldest' do
     t = Time.now
     15.times do |n|
       start_time = (t - (n*20).minutes)

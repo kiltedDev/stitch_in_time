@@ -5,7 +5,7 @@ RSpec.describe "static_pages", type: :view do
     end
 
   feature "root" do
-    scenario "directs to home" do
+    it "directs to home" do
       visit root_path
 
       expect(page).to have_content "Stitch in Time"
@@ -13,13 +13,13 @@ RSpec.describe "static_pages", type: :view do
   end
 
   feature "home page" do
-    scenario "shows home page and link to sources" do
+    it "shows home page and link to sources" do
       visit root_path
 
       expect(page).to have_content "Stitch in Time"
     end
 
-    scenario "has a title" do
+    it "has a title" do
       visit root_path
       expect(page).to have_title "#{@base_title}"
     end
@@ -27,13 +27,13 @@ RSpec.describe "static_pages", type: :view do
   end
 
   feature "help page" do
-    scenario "show help page with helpful resources" do
+    it "show help page with helpful resources" do
       visit help_path
 
       expect(page).to have_content "Help"
     end
 
-    scenario "has a title" do
+    it "has a title" do
       visit help_path
 
       expect(page).to have_title "Help | #{@base_title}"
@@ -41,14 +41,14 @@ RSpec.describe "static_pages", type: :view do
   end
 
   feature "about page" do
-    scenario "shows about page with useful information" do
+    it "shows about page with useful information" do
       visit about_path
 
       expect(page).to have_content "About"
       expect(page).to have_link "Atelier Oliphant"
     end
 
-    scenario "has a title " do
+    it "has a title " do
       visit about_path
 
       expect(page).to have_title "About | #{@base_title}"
@@ -56,14 +56,14 @@ RSpec.describe "static_pages", type: :view do
   end
 
   feature "contact page" do
-    scenario "shows contact page with some people" do
+    it "shows contact page with some people" do
       visit contact_path
 
       expect(page).to have_content "Contact"
       expect(page).to have_link "Thomas Wilson"
     end
 
-    scenario "has a title" do
+    it "has a title" do
       visit contact_path
 
       expect(page).to have_title "Contact | #{@base_title}"
