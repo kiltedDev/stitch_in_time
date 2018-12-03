@@ -47,6 +47,5 @@ feature 'user edit account', %(
     visit edit_user_path @bob
 
     expect(page).to have_content("You need to sign in or sign up before continuing.")
-    # expect(page).to have_current_path(login_path)
   end
 end

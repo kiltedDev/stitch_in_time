@@ -9,6 +9,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false}
   validates :password, presence: true, length: { minimum: 8, maximum: 64 }, allow_nil: true
   validates :username, length: { minimum: 4, maximum: 50 }, uniqueness: {case_sensitive: false}, allow_blank: true
+  validates :time_zone, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 

@@ -5,6 +5,11 @@
     <%= f.text_field :username, autofocus: true, class: "form-control" %>
   </div>
 
+  <div>
+    <%= f.label :time_zone %><br />
+    <%= f.time_zone_select :time_zone %>
+  </div>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 
   <div class="gravatar_edit">

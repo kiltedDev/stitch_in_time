@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181203004039) do
+ActiveRecord::Schema.define(version: 20181203155523) do
 
   create_table "projects", force: :cascade do |t|
     t.integer "user_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20181203004039) do
     t.boolean "expires"
     t.string "refresh_token"
     t.string "username", default: ""
+    t.string "time_zone", default: "UTC"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

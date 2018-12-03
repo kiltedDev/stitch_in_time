@@ -71,7 +71,10 @@ RSpec.describe User, type: :model do
     expect(@bob).to_not be_valid
   end
 
-  pending "add the specs for timezone to #{__FILE__}"
+  it "is not valid without a valid time zone" do
+    @bob.time_zone = nil
+    expect(@bob).to_not be_valid
+  end
 
   it "returns the correct nickname" do
     expect(@bob.nickname).to eq(@bob.username)
