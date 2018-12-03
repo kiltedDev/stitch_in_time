@@ -35,7 +35,7 @@ feature 'edit punches', %(
     h = "#{new_time_in.strftime("%I")} #{new_time_in.strftime("%p")}"
 
     select(h, from: 'punch[time_in(4i)]')
-    select(new_time_in.min, from: 'punch[time_in(5i)]')
+    select(new_time_in.strftime("%M"), from: 'punch[time_in(5i)]')
     click_button "Save task"
 
     expect(@drone.reload.time_in.hour).to eq(new_time_in.hour)
@@ -48,7 +48,7 @@ feature 'edit punches', %(
     h = "#{new_time_out.strftime("%I")} #{new_time_out.strftime("%p")}"
 
     select(h, from: 'punch[time_out(4i)]')
-    select(new_time_out.min, from: 'punch[time_out(5i)]')
+    select(new_time_out.strftime("%M"), from: 'punch[time_out(5i)]')
     click_button "Save task"
 
     expect(@drone.reload.time_out.hour).to eq(new_time_out.hour)

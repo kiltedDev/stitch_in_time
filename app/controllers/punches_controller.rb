@@ -6,6 +6,7 @@ class PunchesController < ApplicationController
   def create
     @punch = Punch.new(project: @project, time_in: Time.zone.now)
     if @punch.save
+      @punch.project.check_card
       redirect_to edit_punch_path @punch
     else
       redirect_to project_path @project
@@ -24,6 +25,7 @@ class PunchesController < ApplicationController
   def update
     if @punch.update_attributes(punch_params)
       @punch.adjust_time
+      @punch.project.check_card
       flash[:success] = "Task updated"
       redirect_to @project
     else
@@ -33,8 +35,9 @@ class PunchesController < ApplicationController
 
   def punch_out
     @punch.time_out = Time.zone.now
-    @punch.time_worked = @punch.time_out - @punch.time_in
     if @punch.save
+      @punch.adjust_time
+      @punch.project.check_card
       redirect_to project_path @punch.project
     else
       render edit_punch_path @punch

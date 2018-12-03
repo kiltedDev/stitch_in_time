@@ -33,11 +33,14 @@ RSpec.describe Project, type: :model do
     expect(@project).to_not be_valid
   end
 
-  it "is sorted with most recent first" do
+  it "is sorted with most recently worked first" do
     10.times do |n|
       create(:project, user: @bob, created_at: n.hours.ago)
     end
-    most_recent = create(:project, user: @bob, created_at: 1.hour.from_now)
+    most_recent = Project.fourth
+    p = create(:punch, project: most_recent)
+    most_recent.check_card
+
     expect(Project.first).to eq(most_recent)
   end
 

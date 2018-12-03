@@ -21,18 +21,17 @@ feature 'user show page', %(
     expect(page).to have_content(nobody.email)
   end
 
-  it "shows index of user's projects, most recent first" do
+  it "shows index of user's projects, most recently worked first" do
     10.times do
       name = Faker::Lorem.sentence(8)
       description = Faker::Lorem.sentence(10)
       create(:project, user: @bob, name: name, description: description)
     end
-    next_project = create(:project, user: @bob, name: "I am the penultimate project")
-    last_project = create(:project, user: @bob, name: "I am the last project")
+    first = Project.find(4)
+    p = create(:punch, project: first)
+    first.check_card
 
     visit user_path @bob
-    expect(page).to have_content("#{last_project.name}\n#{next_project.name}")
+    expect(page).to have_content("#{first.name}\n#{Project.second.name}")
   end
-
-  pending "adjust #{__FILE__} to list projects by most recently worked on"
 end

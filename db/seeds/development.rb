@@ -61,4 +61,5 @@ errands.each_with_index do |errand, n|
   o = i + 10.hours
   w = o - i
   p = Punch.create(project: r, time_in: i, time_out: o, comment: errand, time_worked: w)
+  r.update_attributes(last_punch: o)
 end
