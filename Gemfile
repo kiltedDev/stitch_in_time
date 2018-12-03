@@ -12,14 +12,14 @@ gem 'bootstrap-sass',           '3.3.7'
 gem 'bcrypt',                   '3.1.12'
 gem 'will_paginate',            '3.1.6'
 gem 'bootstrap-will_paginate',  '1.0.0'
-gem 'faker'
+gem 'faker'                     '1.9.1'
 gem 'carrierwave',              '1.2.2'
 gem 'mini_magick',              '4.7.0'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails'        '4.7.0.4'
 gem 'devise',                   '~> 4.3.0'
-gem 'omniauth'
+gem 'omniauth'                  '1.8.1'
 gem 'omniauth-google-oauth2',   '~> 0.2.2'
-gem 'dotenv-rails'
+gem 'dotenv-rails'              '2.5.0'
 gem "hublot",                   "~> 0.0.6"
 gem "bootstrap_form",           ">= 4.0.0"
 
