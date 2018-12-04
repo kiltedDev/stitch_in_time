@@ -8,7 +8,7 @@ feature 'create project', %(
     @bob = create(:user)
 
     login_as @bob
-    visit user_path @bob
+    visit projects_path @bob
   end
 
   it 'user fails to enter in correct information' do

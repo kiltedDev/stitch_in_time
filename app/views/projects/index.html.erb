@@ -1,6 +1,10 @@
 <% provide(:title, "Projects") %>
 <h1><%= current_user.nickname %>'s Projects</h1>
 
+<section class="project_form">
+  <%= render 'shared/project_form' %>
+</section>
+
 <%= will_paginate previous_label: '<', next_label: '>' %>
 
 <div class="list-group">
