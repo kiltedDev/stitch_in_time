@@ -495,11 +495,11 @@ DEPENDENCIES
   carrierwave (= 1.2.2)
   coffee-rails (= 4.2.2)
   devise (~> 4.3.0)
-  dotenv-rails
+  dotenv-rails (= 2.5.0)
   factory_bot_rails
-  faker
+  faker (= 1.9.1)
   fog (= 1.42)
-  font-awesome-rails
+  font-awesome-rails (= 4.7.0.4)
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
   hublot (~> 0.0.6)
@@ -509,7 +509,7 @@ DEPENDENCIES
   mini_magick (= 4.7.0)
   minitest (= 5.10.3)
   minitest-reporters (= 1.1.14)
-  omniauth
+  omniauth (= 1.8.1)
   omniauth-google-oauth2 (~> 0.2.2)
   pg (= 0.18.4)
   puma (= 3.9.1)

@@ -1,12 +1,10 @@
-<%= form_for(current_user, html: {class:"col-xs-6 col-xs-offset-3"}) do |f| %>
+<%= bootstrap_form_for(current_user, html: {class:"col-xs-6 col-xs-offset-3"}) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div>
-    <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true, class: "form-control" %>
   </div>
 
   <div>
-    <%= f.label :time_zone %><br />
     <%= f.time_zone_select :time_zone %>
   </div>
 
