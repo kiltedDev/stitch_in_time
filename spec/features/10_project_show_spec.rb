@@ -32,4 +32,6 @@ feature 'show project page', %(
     expect(page).to have_link newest.comment
     # expect(page).to_not have_link oldest.comment
   end
+
+  pending 'list the time worked on a project'
 end
