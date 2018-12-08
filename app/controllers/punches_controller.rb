@@ -18,7 +18,7 @@ class PunchesController < ApplicationController
     @comment = @punch.comment.blank? ? "Comment here on your work" : @punch.comment
 
     if @punch.time_worked?
-      @pretty_time = @punch.pretty_time
+      @pretty_time = pretty_time(@punch.time_worked)
     end
   end
 

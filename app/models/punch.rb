@@ -22,10 +22,4 @@ class Punch < ApplicationRecord
     self.time_worked = self.time_out - self.time_in
     self.save
   end
-
-  def pretty_time
-    hours = (self.time_worked/60/60).floor
-    minutes = self.time_worked / (60) % 60
-    "#{hours} hours and #{minutes} minutes"
-  end
 end

@@ -49,4 +49,15 @@ RSpec.describe Project, type: :model do
     @bob.destroy
     expect(Project.count).to eq(0)
   end
+
+  it "knows how much time it's been worked" do
+    5.times do |n|
+      i = Time.zone.now - (n+1).hours
+      o = Time.zone.now - (n*30).minutes
+      p = create(:punch, time_in: i, time_out: o )
+      p.adjust_time
+    end
+
+    expect(@project.time_worked).to eq(36000)
+  end
 end

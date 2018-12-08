@@ -13,8 +13,17 @@ feature 'show project page', %(
   end
 
   it 'shows project details' do
+    t = Time.zone.now
+    5.times do |n|
+      i = t - (n+1).hours
+      o = t - (n*30).minutes
+      create(:punch, time_in: i, time_out: o )
+    end
+    create(:punch, time_in: (t - 17.minutes), time_out: t)
+
     expect(page).to have_content @skunk_works.name
     expect(page).to have_content @skunk_works.description
+    expect(page).to have_content("10 hours and 17 minutes")
   end
 
   it 'lists punches in order from newest to oldest' do

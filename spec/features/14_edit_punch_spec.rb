@@ -29,6 +29,16 @@ feature 'edit punches', %(
     expect(@drone.reload.comment).to eq(new_comment)
   end
 
+  it 'shows the time worked on this punch' do
+    i = Time.zone.now - 1.hours
+    o = Time.zone.now - 30.minutes
+    knapping = create(:punch, time_in: i, time_out: o )
+    knapping.adjust_time
+    visit edit_punch_path knapping
+
+    expect(page).to have_content("30 minutes")
+  end
+
   it 'lets the user adjust the time in of the punch' do
     visit edit_punch_path @drone
     new_time_in = Time.zone.now

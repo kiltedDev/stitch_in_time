@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
   def set_time_zone(&block)
     Time.use_zone(current_user.time_zone, &block)
   end
+
+
+  def pretty_time(time)
+    hours = (time/60/60).floor
+    minutes = time / (60) % 60
+    "#{hours} hours and #{minutes} minutes"
+  end
 end
