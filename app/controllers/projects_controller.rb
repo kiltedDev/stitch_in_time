@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @ready = true
+    @pretty_time = pretty_time(@project.time_worked)
     if @project.punches.first
       @ready = !@project.punches.first.active?
     end

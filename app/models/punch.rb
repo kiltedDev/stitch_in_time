@@ -19,7 +19,9 @@ class Punch < ApplicationRecord
   end
 
   def adjust_time
+    self.project.update(time_worked: (self.project.time_worked - self.time_worked) )
     self.time_worked = self.time_out - self.time_in
     self.save
+    self.project.update(time_worked: (self.project.time_worked + self.time_worked) )
   end
 end

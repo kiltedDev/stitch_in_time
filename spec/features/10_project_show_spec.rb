@@ -17,9 +17,13 @@ feature 'show project page', %(
     5.times do |n|
       i = t - (n+1).hours
       o = t - (n*30).minutes
-      create(:punch, time_in: i, time_out: o )
+      p = create(:punch, time_in: i, time_out: o )
+      p.adjust_time
     end
-    create(:punch, time_in: (t - 17.minutes), time_out: t)
+    p = create(:punch, time_in: (t - 17.minutes), time_out: t)
+    p.adjust_time
+
+    visit project_path @skunk_works
 
     expect(page).to have_content @skunk_works.name
     expect(page).to have_content @skunk_works.description
@@ -33,14 +37,12 @@ feature 'show project page', %(
       end_time = (start_time + 10.minutes)
       Punch.create(project: @skunk_works, time_in: start_time, time_out: end_time)
     end
-    oldest = Punch.find(1)
-    oldest.update_attributes(comment: "I am the oldest")
+    oldest = Punch.last
+    oldest.update(comment: "I am the oldest")
     newest = create(:punch, time_in: t + 10.minutes, comment: "I am the newest comment")
     visit project_path @skunk_works
 
     expect(page).to have_link newest.comment
-    # expect(page).to_not have_link oldest.comment
+    expect(page).to_not have_link oldest.comment
   end
-
-  pending 'list the time worked on a project'
 end

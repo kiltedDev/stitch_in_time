@@ -64,4 +64,6 @@ feature 'edit punches', %(
     expect(@drone.reload.time_out.hour).to eq(new_time_out.hour)
     expect(@drone.reload.time_out.min).to eq(new_time_out.min)
   end
+
+  pending "remove 'if' from punches controller @pretty_time"
 end

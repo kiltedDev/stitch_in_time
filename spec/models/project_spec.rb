@@ -58,6 +58,21 @@ RSpec.describe Project, type: :model do
       p.adjust_time
     end
 
-    expect(@project.time_worked).to eq(36000)
+    expect(@project.reload.time_worked).to eq(36000)
+  end
+
+  it "knows can check its punch cards to update time_worked" do
+    5.times do |n|
+      i = Time.zone.now - (n+1).hours
+      o = Time.zone.now - (n*30).minutes
+      p = create(:punch, time_in: i, time_out: o )
+      p.adjust_time
+    end
+    @project.reload.update(time_worked: 0)
+    expect(@project.reload.time_worked).to eq(0)
+
+    @project.tally_cards
+
+    expect(@project.reload.time_worked).to eq(36000)
   end
 end

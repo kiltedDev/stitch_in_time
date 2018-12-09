@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181208032304) do
+ActiveRecord::Schema.define(version: 20181208224649) do
 
   create_table "projects", force: :cascade do |t|
     t.integer "user_id"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20181208032304) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "last_punch", default: "2018-12-03 16:33:52"
-    t.integer "time_worked"
+    t.datetime "last_punch", default: "2018-12-08 22:41:12"
+    t.integer "time_worked", default: 0
     t.index ["user_id", "created_at"], name: "index_projects_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20181208032304) do
     t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "time_worked"
+    t.integer "time_worked", default: 0
     t.index ["project_id"], name: "index_punches_on_project_id"
   end
 
