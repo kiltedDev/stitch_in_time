@@ -1,18 +1,11 @@
 <% provide(:title, "Projects") %>
 <h1><%= current_user.nickname %>'s Projects</h1>
 
-<section class="project_form">
-  <%= render 'shared/project_form' %>
-</section>
-
-<%= will_paginate previous_label: '<', next_label: '>' %>
-
-<div class="list-group">
-<% @projects.each do |project| %>
-    <%= link_to project_path(project), class: "list-group-item" do %>
-      <h2 class="h3 clickable-text"><small> <%= project.name %></small></h2>
-   <% end %>
-<% end %>
+<div class="col-11">
+  <section class="project_form">
+    <%= render 'shared/project_form' %>
+  </section>
+  <section class="project_form">
+    <%= render 'shared/project_list' %>
+  </section>
 </div>
-
-<%= will_paginate previous_label: '<', next_label: '>' %>

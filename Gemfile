@@ -22,6 +22,7 @@ gem 'omniauth-google-oauth2',   '~> 0.2.2'
 gem 'dotenv-rails',             '2.5.0'
 gem "hublot",                   "~> 0.0.6"
 gem "bootstrap_form",           ">= 4.0.0"
+gem 'bootstrap-social-rails',    '4.12.0'
 
 group :development, :test do
   gem 'rspec-rails'
