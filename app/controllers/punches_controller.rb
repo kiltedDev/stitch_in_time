@@ -1,6 +1,6 @@
 class PunchesController < ApplicationController
-  before_action :set_punch,   only: [:edit, :update, :punch_out, :show]
-  before_action :set_project,   only: [:create, :update]
+  before_action :set_punch,   only: [:edit, :update, :punch_out, :show, :destroy]
+  before_action :set_project,   only: [:create, :update, :destroy]
   before_action :punch_params,   only: [:update]
 
   def create
@@ -31,6 +31,12 @@ class PunchesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    Punch.find(params[:id]).destroy
+    flash[:success] = "Punch deleted"
+    redirect_to project_path @project
   end
 
   def punch_out

@@ -11,3 +11,6 @@
 
   <%= f.submit "Save task" %>
 <% end %>
+<%= link_to "delete", @punch,
+    method: :delete,
+    data: { confirm: "You sure?" } %>

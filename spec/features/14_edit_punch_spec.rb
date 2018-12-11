@@ -65,5 +65,12 @@ feature 'edit punches', %(
     expect(@drone.reload.time_out.min).to eq(new_time_out.min)
   end
 
-  pending "remove 'if' from punches controller @pretty_time"
+  it 'lets me delete unwanted punches' do
+    expect(@deltas.punches.count).to be(2)
+    
+    visit edit_punch_path @drone
+    click_link 'delete'
+
+    expect(@deltas.punches.count).to be(1)
+  end
 end
