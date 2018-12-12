@@ -5,7 +5,7 @@ class PunchesController < ApplicationController
 
   def create
     @punch = Punch.new(project: @project, time_in: Time.zone.now)
-    if !@project.punch.first.active? && @punch.save
+    if @punch.save
       @punch.project.check_card
       redirect_to edit_punch_path @punch
     else
