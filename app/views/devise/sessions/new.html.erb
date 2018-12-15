@@ -1,6 +1,6 @@
 <div class="container col-xs-6 col-xs-offset-3">
   <h2>Log in</h2>
-  <%= render "devise/shared/oauth" %>
+  <%= !render "devise/shared/oauth" %>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-inline") do |f| %>
     <div class="form-group">
       <%= f.label :email %><br />
