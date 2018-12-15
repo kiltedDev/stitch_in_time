@@ -3,6 +3,7 @@ class Punch < ApplicationRecord
   belongs_to :project
   delegate :user, to: :project
   validates :time_in, presence: true
+  validates :time_worked, presence: true
   default_scope -> { order(time_in: :desc) }
 
 

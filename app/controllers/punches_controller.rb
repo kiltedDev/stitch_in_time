@@ -1,7 +1,8 @@
 class PunchesController < ApplicationController
-  before_action :set_punch,   only: [:edit, :update, :punch_out, :show, :destroy]
+  before_action :set_punch,     only: [:edit, :update, :punch_out, :show, :destroy]
   before_action :set_project,   only: [:create, :update, :destroy]
-  before_action :punch_params,   only: [:update]
+  before_action :check_active,  only: [:create]
+  before_action :punch_params,  only: [:update]
 
   def create
     @punch = Punch.new(project: @project, time_in: Time.zone.now)
@@ -16,10 +17,7 @@ class PunchesController < ApplicationController
   def edit
     @project = @punch.project
     @comment = @punch.comment.blank? ? "Comment here on your work" : @punch.comment
-
-    if @punch.time_worked?
-      @pretty_time = pretty_time(@punch.time_worked)
-    end
+    @pretty_time = pretty_time(@punch.time_worked)
   end
 
   def update
@@ -61,6 +59,12 @@ private
       @project = Project.find(params[:project_id])
     else
       @project = @punch.project
+    end
+  end
+
+  def check_active
+    if @project.punches.first && @project.punches.first.active?
+      redirect_to edit_punch_path @project.punches.first
     end
   end
 

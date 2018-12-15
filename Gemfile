@@ -19,7 +19,6 @@ gem 'font-awesome-rails',       '4.7.0.4'
 gem 'devise',                   '~> 4.3.0'
 gem 'omniauth',                 '1.8.1'
 gem 'omniauth-google-oauth2',   '~> 0.2.2'
-gem 'dotenv-rails',             '2.5.0'
 gem "hublot",                   "~> 0.0.6"
 gem "bootstrap_form",           ">= 4.0.0"
 gem 'bootstrap-social-rails',    '4.12.0'
@@ -30,6 +29,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
+  gem 'dotenv-rails',             '2.5.0'
 end
 
 group :development do

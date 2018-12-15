@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :project_params,  only: [:update, :create]
 
   def show
     @project = Project.find(params[:id])
