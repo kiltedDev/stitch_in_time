@@ -19,10 +19,11 @@ gem 'font-awesome-rails',       '4.7.0.4'
 gem 'devise',                   '~> 4.3.0'
 gem 'omniauth',                 '1.8.1'
 gem 'omniauth-google-oauth2',   '~> 0.2.2'
-gem "hublot",                   "~> 0.0.6"
+gem 'hublot',                   "~> 0.0.6"
 gem "bootstrap_form",           ">= 4.0.0"
 gem 'bootstrap-social-rails',   '4.12.0'
 gem 'figaro'
+gem 'webpacker'
 
 
 group :development, :test do
