@@ -23,7 +23,9 @@ gem 'hublot',                   "~> 0.0.6"
 gem "bootstrap_form",           ">= 4.0.0"
 gem 'bootstrap-social-rails',   '4.12.0'
 gem 'figaro'
-gem 'webpacker'
+gem 'webpacker',                 "~>3.0"
+gem "react_on_rails",           "11.1.4"
+
 
 
 group :development, :test do
