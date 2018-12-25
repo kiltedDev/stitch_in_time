@@ -8,6 +8,9 @@
         <%= render 'shared/punch_in_form' %>
       </section>
     <% end %>
+    <div class="text-center">
+      <%= link_to 'edit', edit_project_path %>
+    </div>
     <div class="container text-center">
       <% if @punches.any? %>
         <%= will_paginate @punches, previous_label: '<', next_label: '>' %>

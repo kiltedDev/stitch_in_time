@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :project_params,  only: [:update, :create]
+  before_action :set_project,  only: [:show, :edit]
 
   def show
-    @project = Project.find(params[:id])
     @ready = true
     @pretty_time = pretty_time(@project.time_worked)
     if @project.punches.first
@@ -27,9 +27,28 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @pretty_time = pretty_time(@project.time_worked)
+  end
+
+  def update
+    if @project.update(project_params)
+      @project.check_card
+      flash[:success] = "Project updated"
+      render 'show'
+    else
+      render 'edit'
+    end
+
+  end
+
   private
 
     def project_params
       params.require(:project).permit(:name, :description)
+    end
+
+    def set_project
+      @project = Project.find(params[:id])
     end
 end
