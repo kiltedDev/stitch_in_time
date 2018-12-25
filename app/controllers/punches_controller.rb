@@ -18,6 +18,7 @@ class PunchesController < ApplicationController
     @project = @punch.project
     @comment = @punch.comment.blank? ? "Comment here on your work" : @punch.comment
     @pretty_time = pretty_time(@punch.time_worked)
+    @timer_props = { start_time: @punch.time_in.to_datetime.strftime("%Q").to_i }
   end
 
   def update

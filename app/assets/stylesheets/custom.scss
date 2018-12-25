@@ -314,7 +314,7 @@ span.picture {
   font-size: 30px;
   line-height: 1.33;
   border-radius: 45px;
-  margin-top: 15px;
+  margin: 15px;
 }
 
 /* login */
@@ -344,6 +344,14 @@ span.picture {
 	background-color: white;
 	width: 3em;
 	text-align: center;
+}
+
+/* timer */
+
+.clock-screen {
+  font-family: monospace;
+  font-size: 50px;
+  font-weight: 300;
 }
 
 /* miscellaneous */

@@ -1,8 +1,10 @@
 <div class="container text-center">
   <h1><%= link_to @project.name, project_path(@project), class: "project-link" %></h1>
   <div class="col-6">
-    <div class="col-12">
-      <span><%= @pretty_time %></span>
+    <div class="col-12 clock-screen">
+      <div>
+        <span><%= @pretty_time %></span>
+      </div>
     </div>
     <div class="col-12">
       <span><%= @project.description %></span>
