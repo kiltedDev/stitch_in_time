@@ -8,9 +8,10 @@ class PunchesController < ApplicationController
     @punch = Punch.new(project: @project, time_in: Time.zone.now)
     if @punch.save
       @punch.project.check_card
-      redirect_to edit_punch_path @punch
+      @timer_props = { start_time: @punch.time_in.to_datetime.strftime("%Q").to_i }
+      render 'edit'
     else
-      redirect_to project_path @project
+      render 'edit'
     end
   end
 
@@ -45,7 +46,7 @@ class PunchesController < ApplicationController
       @punch.project.check_card
       redirect_to project_path @punch.project
     else
-      render edit_punch_path @punch
+      render 'edit'
     end
   end
 

@@ -29,7 +29,6 @@ class Stopwatch extends Component {
 
         let newPrettyTime = hours + ":" + minutes + ":" + seconds;
         this.setState({
-          runningTime: ms,
           prettyTime: newPrettyTime
         });
       }, 1000);
