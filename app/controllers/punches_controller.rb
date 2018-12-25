@@ -5,10 +5,11 @@ class PunchesController < ApplicationController
   before_action :punch_params,  only: [:update]
 
   def create
+    time_in = Time.zone.now
     @punch = Punch.new(project: @project, time_in: Time.zone.now)
     if @punch.save
       @punch.project.check_card
-      @timer_props = { start_time: @punch.time_in.to_datetime.strftime("%Q").to_i }
+      @timer_props = { start_time: time_in.to_datetime.strftime("%Q").to_i }
       render 'edit'
     else
       render 'edit'
