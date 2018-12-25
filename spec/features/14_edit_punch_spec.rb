@@ -36,7 +36,7 @@ feature 'edit punches', %(
     knapping.adjust_time
     visit edit_punch_path knapping
 
-    expect(page).to have_content("30 minutes")
+    expect(page).to have_content("00:30:00")
   end
 
   it 'lets the user adjust the time in of the punch' do
@@ -67,7 +67,7 @@ feature 'edit punches', %(
 
   it 'lets me delete unwanted punches' do
     expect(@deltas.punches.count).to be(2)
-    
+
     visit edit_punch_path @drone
     click_link 'delete'
 

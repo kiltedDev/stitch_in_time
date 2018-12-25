@@ -27,7 +27,7 @@ feature 'show project page', %(
 
     expect(page).to have_content @skunk_works.name
     expect(page).to have_content @skunk_works.description
-    expect(page).to have_content("10 hours and 17 minutes")
+    expect(page).to have_content("10:17:00")
   end
 
   it 'lists punches in order from newest to oldest' do
