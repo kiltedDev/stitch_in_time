@@ -3,7 +3,7 @@
   <div class="list-group">
   <% @projects.each do |project| %>
       <%= link_to project_path(project), class: "list-group-item clickable-text" do %>
-        <h2 class="h3"><small> <%= project.name %></small></h2>
+        <h2 class="h2"><small> <%= project.name %></small></h2>
      <% end %>
   <% end %>
   </div>
