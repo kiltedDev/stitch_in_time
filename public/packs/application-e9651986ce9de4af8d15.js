@@ -60,12 +60,12 @@
 /******/ 	__webpack_require__.p = "/packs/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 64);
+/******/ 	return __webpack_require__(__webpack_require__.s = 68);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 64:
+/***/ 68:
 /*!*********************************************!*\
   !*** ./app/javascript/packs/application.js ***!
   \*********************************************/
@@ -87,4 +87,4 @@ console.log('Hello World from Webpacker');
 /***/ })
 
 /******/ });
-//# sourceMappingURL=application-940b908817cfc8a56640.js.map
+//# sourceMappingURL=application-e9651986ce9de4af8d15.js.map
