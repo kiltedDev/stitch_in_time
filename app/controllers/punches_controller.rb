@@ -36,7 +36,7 @@ class PunchesController < ApplicationController
 
   def destroy
     Punch.find(params[:id]).destroy
-    @project.check_card
+    @project.tally_cards
     flash[:success] = "Punch deleted"
     redirect_to project_path @project
   end
@@ -45,7 +45,7 @@ class PunchesController < ApplicationController
     @punch.time_out = Time.zone.now
     if @punch.save
       @punch.adjust_time
-      @punch.project.check_card
+      @punch.project.tally_cards
       redirect_to project_path @punch.project
     else
       render 'edit'
