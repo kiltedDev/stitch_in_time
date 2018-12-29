@@ -24,6 +24,8 @@ congig/secrets.yml
 # Ignore application configuration
 /config/application.yml
 /public/packs-test
+/public/packs
+!/public/packs/manifest.json
 /node_modules
 yarn-debug.log*
 .yarn-integrity
