@@ -1,9 +1,5 @@
-<% if punch.active? %>
-  <%= link_to edit_punch_path(id: punch), class: "list-group-item list-group-item-danger  clickable-text" do %>
-    <h2 class="h3"><small> <%= punch.marker %></small></h2>
-  <% end %>
-<% else %>
-  <%= link_to edit_punch_path(id: punch), class: "list-group-item clickable-text" do %>
-    <h2 class="h3"><small> <%= punch.marker %></small></h2>
-  <% end %>
+<% className = "list-group-item clickable-text" %>
+<% className.concat " list-group-item-danger" if punch.active?%>
+<%= link_to edit_punch_path(id: punch), class: className do %>
+  <h2 class="h2"><small> <%= punch.marker %></small></h2>
 <% end %>

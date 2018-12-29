@@ -10,6 +10,6 @@
     "react-on-rails": "11.2.1"
   },
   "devDependencies": {
-    "webpack-dev-server": "2.11.2"
+    "webpack-dev-server": "^2.11.2"
   }
 }

@@ -7,8 +7,8 @@
     <%= f.text_area :description, placeholder: "Add a description" %>
   </div>
   <% if @project.id %>
-    <%= f.submit "Create", class: "btn btn-primary" %>
-  <% else %>
     <%= f.submit "Update", class: "btn btn-primary" %>
+  <% else %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
   <% end %>
 <% end %>
