@@ -29,6 +29,12 @@ class Stopwatch extends Component {
     this.setState(state => {
       this.timer = setInterval(() => {
         let ms = Date.now() - this.state.startTime
+        if (ms < 0) {
+          this.setState({
+            startTime: Date.now()
+          })
+          ms = 0;
+        }
         let newPrettyTime = this.formatTime(ms);
         this.setState({
           prettyTime: newPrettyTime

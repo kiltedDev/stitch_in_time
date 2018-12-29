@@ -36,6 +36,7 @@ class PunchesController < ApplicationController
 
   def destroy
     Punch.find(params[:id]).destroy
+    @project.check_card
     flash[:success] = "Punch deleted"
     redirect_to project_path @project
   end
