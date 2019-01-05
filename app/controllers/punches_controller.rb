@@ -24,7 +24,7 @@ class PunchesController < ApplicationController
   end
 
   def update
-    if @punch.update(punch_params)
+    if @punch.update_attributes(punch_params)
       @punch.adjust_time
       @punch.project.check_card
       flash[:success] = "Task updated"

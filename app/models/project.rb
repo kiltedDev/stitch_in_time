@@ -8,7 +8,7 @@ class Project < ApplicationRecord
   # Checks the punch card for the most recent punch.
   # Not altering if there are no punches.
   def check_card
-    if self.punches
+    if self.punches.first
       self.last_punch = self.punches.first.time_out || self.punches.first.time_in
       self.save
     end

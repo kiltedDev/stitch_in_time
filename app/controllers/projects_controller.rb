@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :project_params,  only: [:update, :create]
-  before_action :set_project,  only: [:show, :edit]
+  before_action :set_project,  only: [:show, :edit, :update]
 
   def show
     @ready = true
@@ -32,10 +32,10 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update(project_params)
+    if @project.update_attributes(project_params)
       @project.check_card
       flash[:success] = "Project updated"
-      render 'show'
+      redirect_to project_path @project
     else
       render 'edit'
     end
