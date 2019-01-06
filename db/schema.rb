@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20190105012407) do
     t.datetime "updated_at", null: false
     t.datetime "last_punch", default: "2018-12-08 22:41:12"
     t.integer "time_worked", default: 0
-    t.float "estimate"
+    t.float "estimate", default: 100.0
     t.index ["user_id", "created_at"], name: "index_projects_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end

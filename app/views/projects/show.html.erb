@@ -1,5 +1,5 @@
 <% provide(:title, @project.name) %>
-<div class="row">
+<div class="row text-center">
     <section class="project_info">
       <%= render 'project_info' %>
     </section>
@@ -8,10 +8,16 @@
         <%= render 'shared/punch_in_form' %>
       </section>
     <% end %>
-    <div class="text-center">
+    <div>
       <%= link_to 'edit', edit_project_path %>
     </div>
-    <div class="container text-center">
+    <div class="col-12">
+      <h3><%= "Estimate: $#{'%.2f' %  @project.estimate}" %></h3>
+    </div>
+    <div class="col-12">
+      <h3><%= "Rate: $#{@rate} / hr" %></h3>
+    </div>
+    <div class="container">
       <% if @punches.any? %>
         <%= will_paginate @punches, previous_label: '<', next_label: '>' %>
 

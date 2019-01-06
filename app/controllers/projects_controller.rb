@@ -5,8 +5,10 @@ class ProjectsController < ApplicationController
   def show
     @ready = true
     @pretty_time = pretty_time(@project.time_worked)
+    @rate = "15.00"
     if @project.punches.first
       @ready = !@project.punches.first.active?
+      @rate = '%.2f' % ( @project.estimate / (@project.time_worked / 60 / 60) )
     end
     @punches = @project.punches.paginate(page: params[:page], per_page: 10)
   end
@@ -45,7 +47,7 @@ class ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:name, :description)
+      params.require(:project).permit(:name, :description, :estimate)
     end
 
     def set_project

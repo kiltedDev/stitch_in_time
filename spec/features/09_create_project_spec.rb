@@ -21,6 +21,7 @@ feature 'create project', %(
   it 'user enters correct information' do
     fill_in :project_name, with: "I am a project"
     fill_in :project_description, with: "I am a very detailed description"
+    fill_in :project_estimate, with: 100
 
     click_button 'Create'
 

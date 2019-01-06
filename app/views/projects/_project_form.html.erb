@@ -6,6 +6,9 @@
   <div class="field">
     <%= f.text_area :description, placeholder: "Add a description" %>
   </div>
+  <div class="field">
+    <%= f.text_area :estimate, placeholder: 100 %>
+  </div>
   <% if @project.id %>
     <%= f.submit "Update", class: "btn btn-primary" %>
   <% else %>
