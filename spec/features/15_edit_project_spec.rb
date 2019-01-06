@@ -12,7 +12,7 @@ feature 'edit project', %(
 
   it 'can update name' do
     visit edit_project_path @deltas
-    fill_in "project[name]", with: "Cohabitate with Deltans"
+    fill_in :project_name, with: "Cohabitate with Deltans"
     click_button "Update"
 
     expect(page).to have_content("Cohabitate with Deltans")
@@ -21,7 +21,7 @@ feature 'edit project', %(
 
   it 'can update description' do
     visit edit_project_path @deltas
-    fill_in "project[description]", with: "Complete the language studies and the drone body"
+    fill_in :project_description, with: "Complete the language studies and the drone body"
     click_button "Update"
 
     expect(page).to have_content("Complete the language studies and the drone body")

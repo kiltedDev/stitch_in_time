@@ -23,7 +23,7 @@ feature 'edit punches', %(
     visit edit_punch_path @drone
     new_comment = "A drone to fight Gorilloids with"
 
-    fill_in "Comment", with: new_comment
+    fill_in :punch_comment, with: new_comment
     click_button "Save task"
 
     expect(@drone.reload.comment).to eq(new_comment)

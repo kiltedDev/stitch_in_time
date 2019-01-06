@@ -12,7 +12,7 @@ feature 'change password', %(
   end
 
   it 'user fails to enter in correct information' do
-    fill_in "Password", with: ""
+    fill_in :user_password, with: ""
 
     click_button 'Update'
 
@@ -21,8 +21,8 @@ feature 'change password', %(
   end
 
   it 'user changes profile correctly' do
-    fill_in "Password", with: "iamthebob"
-    fill_in "Password confirmation", with: "iamthebob"
+    fill_in :user_password, with: "iamthebob"
+    fill_in :user_password_confirmation, with: "iamthebob"
     fill_in "Current password", with: "password"
 
     click_button 'Update'
@@ -35,6 +35,5 @@ feature 'change password', %(
     visit edit_user_registration_path @bob
 
     expect(page).to have_content("You need to sign in or sign up before continuing.")
-    # expect(page).to have_current_path(login_path)
   end
 end

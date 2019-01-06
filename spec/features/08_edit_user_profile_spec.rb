@@ -14,7 +14,7 @@ feature 'user edit account', %(
 
   it 'user fails to enter in correct information' do
     long_string = "a" * 65
-    fill_in "Username", with: long_string
+    fill_in :user_username, with: long_string
 
     click_button 'Save changes'
 
@@ -23,7 +23,7 @@ feature 'user edit account', %(
   end
 
   it 'user fails to enter in correct information' do
-    fill_in "Username", with: "a"
+    fill_in :user_username, with: "a"
 
     click_button 'Save changes'
 
@@ -32,7 +32,7 @@ feature 'user edit account', %(
   end
 
   it 'user edits profile correctly' do
-    fill_in "Username", with: "Robert Johansson"
+    fill_in :user_username, with: "Robert Johansson"
 
     click_button 'Save changes'
 

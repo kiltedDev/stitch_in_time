@@ -12,8 +12,8 @@ feature 'sign in', %(
   end
 
   it 'user successfully signs in' do
-    fill_in 'Email', with: @bob.email
-    fill_in 'Password', with: "password"
+    fill_in :user_email, with: @bob.email
+    fill_in :user_password, with: "password"
 
     click_button 'Log in'
 
@@ -25,8 +25,8 @@ feature 'sign in', %(
   it 'a non-existent attempts to sign in' do
     visit new_user_session_path
 
-    fill_in 'Email', with: 'bill@bob.net'
-    fill_in 'Password', with: "password"
+    fill_in :user_email, with: 'bill@bob.net'
+    fill_in :user_password, with: "password"
 
     click_button 'Log in'
 
@@ -36,8 +36,8 @@ feature 'sign in', %(
   end
 
   it 'an existing user with the wrong password tries to sign in' do
-    fill_in 'Email', with: @bob.email
-    fill_in 'Password', with: "notmypassword"
+    fill_in :user_email, with: @bob.email
+    fill_in :user_password, with: "notmypassword"
 
     click_button 'Log in'
 
@@ -49,7 +49,7 @@ feature 'sign in', %(
   it 'A user cannot sign in when already signed in' do
     medeiros = FactoryBot.create(:user, :major)
 
-    login_as(medeiros, scope: :user)
+    login_as medeiros
 
     visit new_user_session_path
 

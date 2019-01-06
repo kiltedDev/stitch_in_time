@@ -9,9 +9,9 @@ feature 'sign up', %(
   it 'specifying valid and required information' do
     visit new_user_registration_path
 
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'user_password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
+    fill_in :user_email, with: 'user@example.com'
+    fill_in :user_password, with: 'password'
+    fill_in :user_password_confirmation, with: 'password'
 
     click_button 'Sign up'
 
@@ -35,9 +35,9 @@ feature 'sign up', %(
     bob = FactoryBot.create(:user)
     visit new_user_registration_path
 
-    fill_in 'Email', with: bob.email
-    fill_in 'user_password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
+    fill_in :user_email, with: bob.email
+    fill_in :user_password, with: 'password'
+    fill_in :user_password_confirmation, with: 'password'
 
     click_button 'Sign up'
 
@@ -48,9 +48,9 @@ feature 'sign up', %(
   it 'password confirmation does not match confirmation' do
     visit new_user_registration_path
 
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'user_password', with: 'password'
-    fill_in 'Password confirmation', with: 'somethingDifferent'
+    fill_in :user_email, with: 'user@example.com'
+    fill_in :user_password, with: 'password'
+    fill_in :user_password_confirmation, with: 'somethingDifferent'
 
     click_button 'Sign up'
 
