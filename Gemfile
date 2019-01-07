@@ -25,8 +25,7 @@ gem 'bootstrap-social-rails',   '4.12.0'
 gem 'figaro'
 gem 'webpacker',                 "~>3.0"
 gem "react_on_rails",           "11.1.4"
-
-
+gem 'csv',                      "3.0.2"
 
 group :development, :test do
   gem 'rspec-rails'

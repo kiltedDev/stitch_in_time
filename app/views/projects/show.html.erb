@@ -1,31 +1,32 @@
 <% provide(:title, @project.name) %>
 <div class="row text-center">
-    <section class="project_info">
-      <%= render 'project_info' %>
+  <section class="project_info">
+    <%= render 'project_info' %>
+  </section>
+  <% if @ready %>
+    <section class="punch_in_form">
+      <%= render 'shared/punch_in_form' %>
     </section>
-    <% if @ready %>
-      <section class="punch_in_form">
-        <%= render 'shared/punch_in_form' %>
-      </section>
-    <% end %>
-    <div>
-      <%= link_to 'edit', edit_project_path %>
-    </div>
-    <div class="col-12">
-      <h3><%= "Estimate: $#{'%.2f' %  @project.estimate}" %></h3>
-    </div>
-    <div class="col-12">
-      <h3><%= "Rate: $#{@rate} / hr" %></h3>
-    </div>
-    <div class="container">
-      <% if @punches.any? %>
-        <%= will_paginate @punches, previous_label: '<', next_label: '>' %>
-
-        <div class="list-group">
-          <%= render @punches %>
-        </div>
-
-        <%= will_paginate @punches, previous_label: '<', next_label: '>' %>
-      <% end %>
+  <% end %>
+  <div>
+    <%= link_to 'edit', edit_project_path %>
   </div>
+  <div class="col-12">
+    <h3><%= "Estimate: $#{'%.2f' %  @project.estimate}" %></h3>
+  </div>
+  <div class="col-12">
+    <h3><%= "Rate: $#{@rate} / hr" %></h3>
+  </div>
+  <div class="container">
+    <% if @punches.any? %>
+      <%= will_paginate @punches, previous_label: '<', next_label: '>' %>
+
+      <div class="list-group">
+        <%= render @punches %>
+      </div>
+
+      <%= will_paginate @punches, previous_label: '<', next_label: '>' %>
+    <% end %>
+  </div>
+
 </div>
