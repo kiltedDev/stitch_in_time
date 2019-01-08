@@ -21,4 +21,16 @@ class Project < ApplicationRecord
     end
     self.update(time_worked: sum)
   end
+
+  def to_csv
+    attributes = %w{id time_in time_out comment}
+
+    ::CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      self.punches.each do |punch|
+        csv << attributes.map{ |attr| punch.send(attr) }
+      end
+    end
+  end
 end

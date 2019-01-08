@@ -28,5 +28,8 @@
       <%= will_paginate @punches, previous_label: '<', next_label: '>' %>
     <% end %>
   </div>
-
+  <p>
+    Download Punch Card:
+    <%= link_to "CSV", project_path(format: "csv") %>
+  </p>
 </div>
