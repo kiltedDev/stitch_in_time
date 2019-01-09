@@ -17,9 +17,8 @@ class ProjectsController < ApplicationController
       format.html
       format.csv {
         send_data @project.to_csv,
-        filename: "#{@project.name.parameterize.underscore}.csv",
-        disposition: "inline"
-       }
+        filename: "#{@project.name.parameterize.underscore}.csv"
+      }
     end
   end
 
