@@ -2,7 +2,7 @@ source 'https://rubygems.org/'
 
 gem 'rails',                    '5.1.6'
 gem 'puma',                     '3.9.1'
-gem 'sass-rails',               '5.0.6'
+gem 'sassc'
 gem 'uglifier',                 '3.2.0'
 gem 'coffee-rails',             '4.2.2'
 gem 'jquery-rails',             '4.3.1'
@@ -26,7 +26,6 @@ gem 'figaro'
 gem 'webpacker',                 '~>3.0'
 gem 'react_on_rails',           '11.1.4'
 gem 'csv',                      '3.0.2'
-gem 'prawn',                    '2.2.2'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -48,7 +47,6 @@ group :test do
   gem 'rails-controller-testing', '1.0.2'
   gem 'minitest',                 '5.10.3'
   gem 'minitest-reporters',       '1.1.14'
-  gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
   gem 'factory_bot_rails'
 end
