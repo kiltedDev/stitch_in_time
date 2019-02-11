@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.build(project_params)
+    @project.estimate.nil? ? @project.estimate = 0 : nil
     if @project.save
       flash[:success] = "Project created!"
       redirect_to project_path(@project)
