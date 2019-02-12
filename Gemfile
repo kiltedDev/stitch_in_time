@@ -2,7 +2,7 @@ source 'https://rubygems.org/'
 
 gem 'rails',                    '5.1.6'
 gem 'puma',                     '3.9.1'
-gem 'sass-rails',               '5.0.6'
+gem 'sassc'
 gem 'uglifier',                 '3.2.0'
 gem 'coffee-rails',             '4.2.2'
 gem 'jquery-rails',             '4.3.1'
@@ -19,14 +19,13 @@ gem 'font-awesome-rails',       '4.7.0.4'
 gem 'devise',                   '~> 4.3.0'
 gem 'omniauth',                 '1.8.1'
 gem 'omniauth-google-oauth2',   '~> 0.2.2'
-gem 'hublot',                   "~> 0.0.6"
-gem "bootstrap_form",           ">= 4.0.0"
+gem 'hublot',                   '~> 0.0.6'
+gem 'bootstrap_form',           '>= 4.0.0'
 gem 'bootstrap-social-rails',   '4.12.0'
 gem 'figaro'
-gem 'webpacker',                 "~>3.0"
-gem "react_on_rails",           "11.1.4"
-
-
+gem 'webpacker',                 '~>3.0'
+gem 'react_on_rails',           '11.1.4'
+gem 'csv',                      '3.0.2'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -48,7 +47,6 @@ group :test do
   gem 'rails-controller-testing', '1.0.2'
   gem 'minitest',                 '5.10.3'
   gem 'minitest-reporters',       '1.1.14'
-  gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
   gem 'factory_bot_rails'
 end

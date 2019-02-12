@@ -1,3 +1,5 @@
+require 'csv'
+
 class ProjectsController < ApplicationController
   before_action :project_params,  only: [:update, :create]
   before_action :set_project,  only: [:show, :edit, :update]
@@ -11,6 +13,13 @@ class ProjectsController < ApplicationController
       @rate = '%.2f' % ( @project.estimate / (@project.time_worked / 60 / 60) )
     end
     @punches = @project.punches.paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html
+      format.csv {
+        send_data @project.to_csv,
+        filename: "#{@project.name.parameterize.underscore}.csv"
+      }
+    end
   end
 
   def index
